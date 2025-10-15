@@ -1,0 +1,150 @@
+SCSS Concepts for Angular Applications
+
+1. Variables
+
+* Store reusable values like colors, fonts, spacing.
+* Example:
+  $primary-color: #007bff;
+  $spacing: 16px;
+  .button { background: $primary-color; padding: $spacing; }
+
+2. Nesting
+
+* Hierarchical CSS like HTML structure.
+* Example:
+  .navbar { background: $primary-color; .nav-item { color: white; &:hover { color: darken($primary-color, 10%); } } }
+
+3. Mixins
+
+* Reusable style blocks with optional parameters.
+* Example:
+  @mixin flex-center { display: flex; justify-content: center; align-items: center; } .card { @include flex-center; }
+
+4. Functions
+
+* Return computed values.
+* Example:
+  @function px-to-rem($px) { @return $px / 16 * 1rem; } .container { padding: px-to-rem(32); }
+
+5. Partials & Imports
+
+* Modular SCSS files; use @use or @forward.
+* Example:
+  @use 'variables'; @use 'mixins'; .button { background: variables.$primary-color; @include mixins.flex-center; }
+
+6. Inheritance / Extend
+
+* Share styles between selectors using @extend.
+* Example:
+  .message { padding: 1rem; border-radius: 4px; } .success { @extend .message; background-color: green; }
+
+7. Control Directives
+
+* Conditional & loops: @if, @else, @for, @each, @while.
+* Example:
+  @for $i from 1 through 3 { .margin-#{$i} { margin: $i * 8px; } }
+
+8. Maps
+
+* Key-value collections.
+* Example:
+  $colors: ( primary: #007bff, secondary: #6c757d ); .button { background: map-get($colors, primary); }
+
+9. Operators
+
+* Math operations: +, -, *, /, %
+* Example:
+  $base-spacing: 8px; .container { padding: $base-spacing * 2; }
+
+---
+
+CSS Concepts for Angular Applications
+
+1. Selectors
+
+* Target HTML elements: element, class, id, attribute, pseudo-class, pseudo-element.
+* Example: p { color: blue; } .button { background: red; } #header { font-size: 24px; }
+
+2. Box Model
+
+* Elements have content, padding, border, margin.
+* Example: div { width: 100px; padding: 10px; border: 2px solid black; margin: 5px; }
+
+3. Display & Positioning
+
+* Layout: block, inline, inline-block, flex, grid; Position: static, relative, absolute, fixed, sticky.
+* Example: .container { display: flex; justify-content: center; align-items: center; }
+
+4. Flexbox
+
+* One-dimensional layout.
+* Example: .flex-container { display: flex; justify-content: space-between; }
+
+5. Grid
+
+* Two-dimensional layout.
+* Example: .grid { display: grid; grid-template-columns: 1fr 2fr; gap: 10px; }
+
+6. Colors & Backgrounds
+
+* Named colors, hex, rgb, hsl, gradients.
+* Example: body { background: linear-gradient(to right, red, yellow); }
+
+7. Typography
+
+* font-family, font-size, font-weight, line-height, text-align.
+* Example: h1 { font-family: 'Arial', sans-serif; font-size: 24px; }
+
+8. Pseudo-classes & Pseudo-elements
+
+* :hover, :focus, :nth-child(), ::before, ::after.
+* Example: a:hover { color: red; } p::first-letter { font-size: 2em; }
+
+9. Transitions & Animations
+
+* Smooth changes or keyframe animations.
+* Example: .button { transition: background 0.3s; } @keyframes fade { from {opacity: 0;} to {opacity: 1;} }
+
+10. Media Queries & Responsive Design
+
+* Example: @media (max-width: 768px) { .container { flex-direction: column; } }
+
+11. CSS Variables
+
+* Syntax: --variable-name: value; var(--variable-name)
+* Example: :root { --primary-color: #007bff; } .button { background: var(--primary-color); }
+
+12. Combinators
+
+* Descendant, child, adjacent sibling, general sibling.
+* Example: div > p { color: red; }
+
+13. Overflow & Clipping
+
+* Control content exceeding boundaries: visible, hidden, scroll, auto.
+* Example: .container { overflow: hidden; }
+
+14. Z-Index & Stacking Context
+
+* Control element stacking.
+* Example: .modal { position: absolute; z-index: 100; }
+
+15. Filters & Effects
+
+* Apply visual effects: blur, brightness, contrast.
+* Example: img { filter: grayscale(100%); }
+
+16. Shadows & Borders
+
+* box-shadow, text-shadow, border-radius.
+* Example: .card { box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-radius: 8px; }
+
+17. Cursor & User Interaction
+
+* cursor: pointer, grab, default, wait.
+* Example: .button { cursor: pointer; }
+
+18. Clip-path & Shape Manipulation
+
+* Create custom shapes.
+* Example: div { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%); }
