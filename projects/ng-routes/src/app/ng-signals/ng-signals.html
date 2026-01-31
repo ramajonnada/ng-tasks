@@ -1,0 +1,9 @@
+<p>ng-signals works!</p>
+
+<div>
+	<zyra-button (click)="increment()">Increment</zyra-button>
+	{{number()}}
+	<zyra-button (click)="decrement()" [disabled]="disable()">decrement</zyra-button>
+	name: {{name()}}
+</div>
+
